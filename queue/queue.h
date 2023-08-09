@@ -16,9 +16,9 @@ typedef struct queue_tag{
 
 void initializeQueue(QueuePtr);
 
-void Enqueue(QueuePtr, Item_type);
+void enqueue(QueuePtr, Item_type);
 
-void Dequeue(QueuePtr, Item_type *);
+void dequeue(QueuePtr, Item_type *);
 
 bool isFull(QueuePtr);
 
