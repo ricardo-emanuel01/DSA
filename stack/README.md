@@ -1,4 +1,4 @@
-# Stacks
+# Stack
 
 A stack is a fundamental abstract data type that can be implemented using various underlying data structures, such as a circular static array, a dynamic array, a singly linked list, or a doubly linked list. Stacks are characterized by three primary operations: **push**, **pop**, and **peek**. These operations allow for the manipulation and retrieval of elements within the stack. The analogy of a stack of plates in a kitchen provides a useful mental model to understand how stacks operate: just as we add plates to the top of the stack and retrieve the topmost plate, a stack follows a similar Last-In-First-Out (**LIFO**) principle.
 
