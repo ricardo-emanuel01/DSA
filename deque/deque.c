@@ -30,7 +30,8 @@ void freeDeque(DequePtr list) {
     do {
         current_node = next_node;
         next_node = current_node->next;
-        free(current_node->value);
+        if (current_node == list->head || current_node == list->tail)
+            free(current_node->value);
         free(current_node);
 
     } while (next_node != NULL);
