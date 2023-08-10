@@ -19,19 +19,30 @@ void initializeStack(StackPtr stack_ptr) {
 
 
 void push(StackPtr stack_ptr, Item_type value) {
-    if (isFull(stack_ptr)) Error("Stack is full!");
+    if (isFull(stack_ptr)) {
+        free(stack_ptr);
+        Error("Stack is full!");
+    }
     else stack_ptr->entry[stack_ptr->top++] = value;
 }
 
 
 void pop(StackPtr stack_ptr, Item_type* popped) {
-    if (isEmpty(stack_ptr)) Error("Stack is empty!");
+    if (isEmpty(stack_ptr)) {
+        free(popped);
+        free(stack_ptr);
+        Error("Stack is empty!");
+    }
     else *popped = stack_ptr->entry[--stack_ptr->top];
 }
 
 
 Item_type peek(StackPtr stack_ptr) {
-    if (isEmpty(stack_ptr)) Error("Stack is empty!");
+    if (isEmpty(stack_ptr)) {
+        free(stack_ptr);
+        Error("Stack is empty!");
+        exit(1); // Just to fix the warning
+    }
     else return stack_ptr->entry[stack_ptr->top - 1];
 }
 
