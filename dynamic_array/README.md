@@ -1,25 +1,29 @@
-# Dynamic Arrays
+# Arrays dinâmicos (Dynamic arrays)
 
-Dynamic arrays, exemplified by structures like Python and Java lists, C++ vectors, and Rust vectors, present a versatile evolution of static arrays. While static arrays allocate memory for a fixed number of elements, dynamic arrays introduce flexibility by allowing elements to be inserted and removed, adapting to the changing requirements of the program.
+Arrays dinâmicos, que são encontrados em linguagens como a lista presente no Python e no Java, os vetores do C++ e do Rust, apresentam uma evolução ao array estáticos. Enquanto arrays estáticos tem um tamanho pré definido e é alocado na memória em *stack* (e é definido durante a compilação), os arrays dinâmicos alocam memória *heap* em tempo de execução o que nos permite adicionar ou tirar elementos efetivamente de um array e adaptamos o tamanho dele de acordo com as operações que o programa fará em tempo de execução.
 
-## Key Characteristics:
+## Características chaves:
 
-- Resizable Nature: Unlike static arrays, dynamic arrays offer the crucial advantage of resizing. This feature enables seamless insertion and deletion of elements, enhancing the data structure's utility across various scenarios.
+- **Pode mudar de tamanho**: Diferente dos arrays estáticos, os arrays dinâmicos podem mudar de tamanho. O que nos permite adicionar ou retirar elementos do array.
+- **Memória contígua**: Da mesma forma que os arrays estáticos, os arrays dinâmicos armazenam seus elementos em um espaço contíguo de memória, ou seja, sempre que mudarmos o tamanho deste array ele deve alocar um espaço diferente da memória para a nova quantidade de elementos ou então extender ou comprimir o espaço preenchido.
+- **Indexável**: Assim como os arrays estáticos, os arrays dinâmicos continuam sendo indexável, então acessamos um elemento aleatório em O(1);
 
-- Contiguous Memory: Similar to static arrays, dynamic arrays store their elements in a contiguous block of memory. However, the key distinction lies in the ability to resize this memory block dynamically as elements are added or removed.
+## Alocação de memória e Gerenciamento:
 
-## Memory Allocation and Management:
+O conceito base do array dinâmico pode ser a alocação de memória, através disso conseguimos expandir ou diminuir o tamanho do nosso array para conter mais ou menos elementos. É muito importante ter em mente que como estamos alocando memória em tempo de execução, devemos nos lembrar te desbloquear esse espaço da memória quando a vida útil do nosso array acabar, fazemos isso utilizando a função **free()** do C. Caso alguém execute uma alocação de memória utilizando **malloc()** ou **calloc()** e se esqueça de desbloquear a memória alocada ao terminar a execução do programa temos como resultado o tão famigerado **vazamento de memória**.  
+Portanto podemos dizer que cada **malloc()** ou **calloc()** teve ter um respectivo **free()** e podemos verificar se nosso programa vaza memória de alguma forma utilizando o **valgrind**.
 
-The core principle underlying dynamic arrays is memory allocation. Imagine having an array initially sized to store, say, 5 elements. When the need arises to insert a new element, the system allocates a larger memory chunk, often proportional to the previous size. The existing elements are then migrated to the new memory space, accommodating the new element.
+## Operações
 
-For instance, if the original array can hold 5 elements and a new one is to be inserted, memory may be allocated for a larger chunk (e.g., twice the previous size). The existing elements are copied over, and the new element finds its place in the expanded memory space. This approach enables the data structure to dynamically adjust to evolving demands.
+Para o exemplo de implementação definimos algumas operações, são elas:
 
-## Memory Management Considerations:
+- Mudar tamanho;
+- Adicionar no final;
+- Inserir no índice específico;
+- Retirar o último elemento;
+- Remover em um índice específico;
+- Remover um elemento específico;
+- Modificar um elemento específico;
+- Acessar um elemento específico;
 
-However, dynamic arrays bring along memory management responsibilities. While they grant enhanced flexibility, improper handling of memory allocation and deallocation can lead to memory leaks. Every memory allocation should be accompanied by a corresponding deallocation to free up resources when they are no longer needed.
-
-## Conclusion:
-
-Dynamic arrays exemplify the synergy of memory management and data structure design. By permitting resizing and adapting to changing data requirements, they facilitate efficient operations in diverse programming scenarios. Nonetheless, meticulous attention to memory allocation and deallocation is imperative to prevent memory leaks and maintain program stability.
-
-Incorporating dynamic arrays into your programming toolkit empowers you to gracefully tackle changing data needs, while a firm grasp of memory management ensures the integrity of your software's memory utilization.
+Todas as outras funções além destas acima servirão apenas para auxiliar na implementação das listadas.
