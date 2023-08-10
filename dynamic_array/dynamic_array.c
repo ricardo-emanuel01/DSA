@@ -4,7 +4,7 @@
 # include "dynamic_array.h"
 
 
-void newArray(ArrayPtr array) {
+void initializeArray(ArrayPtr array) {
     array->size = 0;
     array->data = (ArrayType *)calloc(5, sizeof(ArrayType));
     if (array->data == NULL) {
@@ -31,7 +31,7 @@ void resize(ArrayPtr array) {
 
 
 void add(ArrayPtr array, ArrayType value) {
-    if (array->size == array->capacity) {
+    if (isFull(array)) {
         resize(array);
     }
     array->data[array->size++] = value;
