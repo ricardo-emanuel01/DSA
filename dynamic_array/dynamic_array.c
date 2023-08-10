@@ -39,35 +39,39 @@ void add(ArrayPtr array, ArrayType value) {
 
 
 void insertAt(ArrayPtr array, int index, ArrayType value) {
-    if (isFull(array)) resize(array);
     if (index == array->size) {
         add(array, value);
-        return;
-    }
-    int counter = 1;
-    int newSize = array->size + 1;
-    ArrayType temp1 = array->data[index];
-    ArrayType temp2;
-    array->data[index] = value;
+    } else if (index < 0 || index > array->size) {
+        // Process error
+    } else {
+        int counter = 1;
+        int newSize = array->size + 1;
+        ArrayType temp1 = array->data[index];
+        ArrayType temp2;
+        array->data[index] = value;
 
-    while((index + counter) < newSize) {
-        if (counter % 2 != 0) {
-            temp2 = array->data[index + counter];
-            array->data[index + counter] = temp1;
-        } else {
-            temp1 = array->data[index + counter];
-            array->data[index + counter] = temp2;
+        while((index + counter) < newSize) {
+            if (counter % 2 != 0) {
+                temp2 = array->data[index + counter];
+                array->data[index + counter] = temp1;
+            } else {
+                temp1 = array->data[index + counter];
+                array->data[index + counter] = temp2;
+            }
+            counter++;
         }
-        counter++;
+        array->size = newSize;
     }
-    array->size = newSize;
 }
 
 
 ArrayType pop(ArrayPtr array) {
     if (!isEmpty(array)) return array->data[--array->size];
-    else exit(1);
-    // Process error
+    else {
+        // Process error
+        freeArray(array);
+        exit(1);
+    }
 }
 
 
