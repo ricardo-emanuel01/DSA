@@ -32,7 +32,7 @@ void pop(StackPtr stack_ptr, Item_type* popped) {
 
 Item_type peek(StackPtr stack_ptr) {
     if (isEmpty(stack_ptr)) Error("Stack is empty!");
-    else return stack_ptr->entry[stack_ptr->top];
+    else return stack_ptr->entry[stack_ptr->top - 1];
 }
 
 
