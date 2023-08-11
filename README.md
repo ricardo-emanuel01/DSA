@@ -2,7 +2,7 @@
 
 Algumas estruturas de dados e alguns algoritmos implementados em C.
 
-## Data Structures
+## Estruturas de dados
 
 - Arrays estáticos e dinâmicos
 - Pilhas e filas;
