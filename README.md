@@ -1,17 +1,15 @@
-# Data Structures and Algorithms
+# Estruturas de dados e algoritmos
 
-Some classical data structures and algorithms implemented in C.
+Algumas estruturas de dados e alguns algoritmos implementados em C.
 
-## Outline
+## Data Structures
 
-### Data Structures
-
-- Static and Dynamic arrays;
-- Stacks and Queues;
-- Trees and Binary Trees;
-- Heaps and Priority Queues;
-- Unio Find;
+- Arrays estáticos e dinâmicos
+- Pilhas e filas;
+- Árvores e árvores binárias;
+- Heaps e filas de prioridade;
+- Union Find;
 - Trie;
-- Graphs.
+- Grafos.
 
-### Algorithms
+### Algoritmos
