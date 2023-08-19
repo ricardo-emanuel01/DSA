@@ -1,6 +1,7 @@
 # include "fenwick_tree.h"
 
 // O primeiro elemento está no index 1
+// Aloque uma FenwickTree na main e passe por referência para essa função
 void buildFenwickTree(FenwickTreePtr tree, long *array, int size) {
     tree->data = (long *)malloc((size + 1) * sizeof(long));
     tree->size = size;
