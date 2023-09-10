@@ -17,7 +17,7 @@ typedef struct _deque {
 
 NodePtr newNode(NodeType);
 
-void initializeDeque(DequePtr);
+DequePtr initializeDeque();
 
 void freeDeque(DequePtr);
 
