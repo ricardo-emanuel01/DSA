@@ -22,7 +22,7 @@ typedef struct _deque {
 
 NodePtr newNode(NodeType);
 
-void initializeDeque(Deque*);
+Deque* initializeDeque();
 
 void freeDeque(Deque*);
 

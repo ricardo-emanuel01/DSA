@@ -14,13 +14,17 @@ NodePtr newNode(NodeType data) {
 }
 
 
-void initializeDeque(Deque* list) {
+Deque *initializeDeque() {
+    Deque *list = (Deque *)malloc(sizeof(Deque));
     NodePtr left = newNode(newTreeNode(INT_MAX));
     list->head = left;
     NodePtr right = newNode(newTreeNode(INT_MAX));
     list->tail = right;
     left->next = right;
     right->prev = left;
+    list->size = 0;
+
+    return list;
 }
 
 
