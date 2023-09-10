@@ -4,13 +4,16 @@
 # include "dynamic_array.h"
 
 
-void initializeArray(ArrayPtr array) {
+ArrayPtr initializeArray() {
+    ArrayPtr array = (ArrayPtr)malloc(sizeof(Array));
     array->size = 0;
     array->data = (ArrayType *)calloc(5, sizeof(ArrayType));
     if (array->data == NULL) {
         // Process allocation error
     }
     array->capacity = 5;
+
+    return array;
 }
 
 

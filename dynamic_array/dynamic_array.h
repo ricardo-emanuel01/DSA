@@ -7,7 +7,7 @@ typedef struct _dynArray {
 } Array, *ArrayPtr;
 
 
-void initializeArray(ArrayPtr);
+ArrayPtr initializeArray();
 
 void freeArray(ArrayPtr);
 
