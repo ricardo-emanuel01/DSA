@@ -1,3 +1,5 @@
 .vscode/
 main.c
 main
+*.o
+*.py
